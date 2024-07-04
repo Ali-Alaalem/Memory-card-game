@@ -94,7 +94,7 @@ function hardabbendChild() {
 
 function removeAllImage() {
   while (div.firstChild) {
-    div.removeChild(firstChild);
+    div.removeChild(div.firstChild);
   }
 }
 
