@@ -176,6 +176,7 @@ function hardabbendChild() {
 function removeAllImage() {
   while (div.firstChild) {
     div.removeChild(div.firstChild);
+<<<<<<< HEAD
   }
 }
 function imgChanger() {
@@ -317,6 +318,8 @@ function imgChanger() {
           break;
       }
     }
+=======
+>>>>>>> f9423d88d5692eba2a6b0daee7f79b81bcc33c0f
   }
 }
 
