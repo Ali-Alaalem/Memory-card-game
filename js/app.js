@@ -10,6 +10,7 @@ let turnCount = 0;
 let Fclick;
 let Sclick;
 let same = 0;
+let differnt = 0;
 let easyClicked = false;
 let midClicked = false;
 let hardClicked = false;
@@ -29,7 +30,7 @@ let hardimg = [
 function handelKeyDown() {
   randomNumGenerater();
   imgChanger();
-  R1 = Math.floor(Math.random() * 2 + 1); // Generate R1 in the global scope
+  R1 = Math.floor(Math.random() * 2 + 1);
 
   if (R1 === 1) {
     for (let i = 0; i < choiceaArr.length; i++) {
@@ -45,56 +46,6 @@ function handelKeyDown() {
 
   setTimeout(returner, 3000);
 }
-
-function returner() {
-  for (let i = 0; i < choiceaArr; i++) {
-    document.querySelectorAll("img")[i].src = "Q.jpeg";
-  }
-}
-
-for (let i = 0; i < choiceaArr; i++) {
-  document.querySelectorAll("img")[i].addEventListener("click", swaper);
-}
-
-function swaper() {
-  let currentImage = this;
-
-  if (turnCount === 0) {
-    Fclick = currentImage.id;
-    if (R1 === 1) {
-      document.querySelectorAll("img")[Fclick - 1].src =
-        "./fruit/" + choiceaArr[Fclick - 1] + ".jpeg";
-    } else if (R1 === 2) {
-      document.querySelectorAll("img")[Fclick - 1].src =
-        "./animal/" + choiceaArr[Fclick - 1] + ".jpeg";
-    }
-    C++;
-  } else if (turnCount === 1) {
-    Sclick = currentImage.id;
-    if (R1 === 1) {
-      document.querySelectorAll("img")[Sclick - 1].src =
-        "./fruit/" + choiceaArr[Sclick - 1] + ".jpeg";
-    } else if (R1 === 2) {
-      document.querySelectorAll("img")[Sclick - 1].src =
-        "./animal/" + choiceaArr[Sclick - 1] + ".jpeg";
-    }
-    if (choiceaArr[Fclick - 1] === choiceaArr[Sclick - 1]) {
-      C = 0;
-      Fclick = 0;
-      Sclick = 0;
-      same++;
-    } else {
-      setTimeout(function () {
-        document.getElementById(Fclick).src = "Q.jpeg";
-        document.getElementById(Sclick).src = "Q.jpeg";
-        C = 0;
-        Fclick = 0;
-        Sclick = 0;
-      }, 1000);
-    }
-  }
-}
-
 function randomNumGenerater() {
   if (easyClicked === false && midClicked === true && hardClicked === false) {
     randomNumArr = [];
@@ -139,6 +90,8 @@ function easyabbendChild() {
     for (let i = 0; i < easyimg.length; i++) {
       easyimg[i] = document.createElement("img");
       easyimg[i].src = "./images/Q.jpeg";
+      easyimg[i].id = i + 1;
+      easyimg[i].addEventListener("click", swaper);
       div.appendChild(easyimg[i]);
     }
     easyClicked = true;
@@ -152,6 +105,8 @@ function midabbendChild() {
     for (let i = 0; i < midimg.length; i++) {
       midimg[i] = document.createElement("img");
       midimg[i].src = "./images/Q.jpeg";
+      midimg[i].id = i + 1;
+      midimg[i].addEventListener("click", swaper);
       div.appendChild(midimg[i]);
     }
     midClicked = true;
@@ -165,6 +120,8 @@ function hardabbendChild() {
     for (let i = 0; i < hardimg.length; i++) {
       hardimg[i] = document.createElement("img");
       hardimg[i].src = "./images/Q.jpeg";
+      hardimg[i].id = i + 1;
+      hardimg[i].addEventListener("click", swaper);
       div.appendChild(hardimg[i]);
     }
     hardClicked = true;
@@ -172,10 +129,14 @@ function hardabbendChild() {
     midClicked = false;
   }
 }
-
 function removeAllImage() {
   while (div.firstChild) {
     div.removeChild(div.firstChild);
+  }
+}
+function returner() {
+  for (let i = 0; i < choiceaArr.length; i++) {
+    document.querySelectorAll("img")[i].src = "./images/Q.jpeg";
   }
 }
 function imgChanger() {
@@ -316,6 +277,72 @@ function imgChanger() {
           choiceaArr.push(15);
           break;
       }
+    }
+  }
+}
+function swaper(event) {
+  let currentImage = event.target.id;
+  if (turnCount === 0) {
+    Fclick = currentImage;
+    if (R1 === 1) {
+      document.querySelectorAll("img")[Fclick - 1].src =
+        "./images/fruit/" + choiceaArr[Fclick - 1] + ".jpeg";
+    } else if (R1 === 2) {
+      document.querySelectorAll("img")[Fclick - 1].src =
+        "./images/animal/" + choiceaArr[Fclick - 1] + ".jpeg";
+    }
+    turnCount++;
+  } else if (turnCount === 1) {
+    Sclick = currentImage;
+    if (Fclick === Sclick) {
+      return;
+    }
+    if (R1 === 1) {
+      document.querySelectorAll("img")[Sclick - 1].src =
+        "./images/fruit/" + choiceaArr[Sclick - 1] + ".jpeg";
+    } else if (R1 === 2) {
+      document.querySelectorAll("img")[Sclick - 1].src =
+        "./images/animal/" + choiceaArr[Sclick - 1] + ".jpeg";
+    }
+    if (choiceaArr[Fclick - 1] === choiceaArr[Sclick - 1]) {
+      turnCount = 0;
+      Fclick = 0;
+      Sclick = 0;
+      same++;
+    } else {
+      differnt++;
+      setTimeout(function () {
+        document.getElementById(Fclick).src = "./images/Q.jpeg";
+        document.getElementById(Sclick).src = "./images/Q.jpeg";
+        turnCount = 0;
+        Fclick = 0;
+        Sclick = 0;
+      }, 1000);
+    }
+    if (same === choiceaArr.length / 2) {
+      message.innerText = "You win";
+      setTimeout(function () {
+        message.innerText =
+          "Increase The Difficulty first If You Want Then Press Any Key to Start";
+        turnCount = 0;
+        Fclick = 0;
+        Sclick = 0;
+        same = 0;
+        differnt = 0;
+        R1 = 0;
+      }, 3000);
+    } else if (differnt === 4) {
+      message.innerText = "You lose";
+      setTimeout(function () {
+        message.innerText =
+          "Increase The Difficulty first If You Want Then Press Any Key to Start";
+        turnCount = 0;
+        Fclick = 0;
+        Sclick = 0;
+        same = 0;
+        differnt = 0;
+        R1 = 0;
+      }, 3000);
     }
   }
 }
