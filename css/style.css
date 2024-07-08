@@ -1,19 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Jersey+10&family=Press+Start+2P&display=swap');
 *
 {
   box-sizing: border-box;
 }
+body
+{
+background-color:gray;
+
+}
 .Container {
   display: flex;
   flex-wrap: wrap;
-  width:1300px;
+  width:900px;
   margin: 0 auto;
   justify-content: center;
 }
 
 img {
   width: 130px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   height: 150px;
+  
 }
 header
 {
@@ -21,6 +28,12 @@ header
   flex-direction: column;
   justify-content:center ;
   align-items: center;
+  width: 500px;
+  margin:0 auto;
+  font-family: "Allerta Stencil", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
 }
 button
 {
@@ -32,5 +45,34 @@ section
 {
   display: flex;
   justify-content: center;
+margin-right: 435px;
+}
+#timer
+{
+  width: 100px;
+  height: 21px;
+  background-color: cadetblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
+}
+#timer-container
+{
+ margin-right: 350px;
+
+}
+#reset
+{
+  background-color: red;
+}
+.btn
+{
+  border-radius: 80px;
+}
+p
+{
+  font-weight: 600;
+  font-size: 14px;
 }
