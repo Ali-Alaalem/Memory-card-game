@@ -22,6 +22,8 @@ let keyDown = false;
 let easyClicked = false;
 let midClicked = false;
 let hardClicked = false;
+let isProcessing = false;
+let gameStarted = false;
 let currentImage;
 let interval;
 let timercount = 0;
@@ -34,8 +36,13 @@ let hardimg = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
 
 /*-------------- Functions -------------*/
 function handelKeyDown() {
-  if (easyClicked === true || midClicked === true || hardClicked === true) {
+  if (
+    !gameStarted &&
+    (easyClicked === true || midClicked === true || hardClicked === true)
+  ) {
     keyDown = true;
+    gameStarted = true;
+    console.log(gameStarted);
     message.innerText =
       "If you do 4 wrong matching or The Time's Up The Game Will Over";
     interval = setInterval(timerCalc, 1000);
@@ -112,6 +119,7 @@ function easyabbendChild() {
     hardClicked = false;
     clearInterval(interval);
     keyDown = false;
+    gameStarted = false;
   }
 }
 function midabbendChild() {
@@ -131,6 +139,7 @@ function midabbendChild() {
     hardClicked = false;
     clearInterval(interval);
     keyDown = false;
+    gameStarted = false;
   }
 }
 function hardabbendChild() {
@@ -150,6 +159,7 @@ function hardabbendChild() {
     midClicked = false;
     clearInterval(interval);
     keyDown = false;
+    gameStarted = false;
   }
 }
 function removeAllImage() {
@@ -205,6 +215,8 @@ function imgChanger() {
   }
 }
 function swaper(event) {
+  if (isProcessing) return;
+  isProcessing = true;
   currentImage = event.target.id;
   if (keyDown) {
     mario.play();
@@ -218,6 +230,7 @@ function swaper(event) {
           "./images/animal/" + choiceaArr[Fclick - 1] + ".jpeg";
       }
       turnCount++;
+      isProcessing = false;
     } else if (turnCount === 1) {
       Sclick = currentImage;
       if (R1 === 1) {
@@ -227,6 +240,7 @@ function swaper(event) {
         document.querySelectorAll("img")[Sclick - 1].src =
           "./images/animal/" + choiceaArr[Sclick - 1] + ".jpeg";
       }
+
       if (
         choiceaArr[Fclick - 1] === choiceaArr[Sclick - 1] &&
         Fclick !== Sclick
@@ -235,6 +249,7 @@ function swaper(event) {
         Fclick = 0;
         Sclick = 0;
         same++;
+        isProcessing = false;
       } else {
         if (Fclick !== Sclick) {
           wrong.play();
@@ -247,6 +262,7 @@ function swaper(event) {
           turnCount = 0;
           Fclick = 0;
           Sclick = 0;
+          isProcessing = false;
         }, 800);
       }
       if (same === choiceaArr.length / 2) {
@@ -292,6 +308,9 @@ function handelReset() {
   easyClicked = false;
   midClicked = false;
   hardClicked = false;
+  isProcessing = false;
+  gameStarted = false;
+  currentImage;
   interval;
   timercount = 0;
   choiceaArr = [];
