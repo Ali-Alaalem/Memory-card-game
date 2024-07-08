@@ -6,6 +6,11 @@ const div = document.querySelector(".Container");
 const message = document.querySelector("p");
 const timer = document.querySelector("#timer");
 const reset = document.querySelector("#reset");
+const light = document.querySelector("#dark");
+let mario = new Audio("mario.mp3");
+let wrong = new Audio("wrong.mp3");
+let victory = new Audio("victory.mp3");
+
 /*---------- Variables (state) ---------*/
 let randomNum = 0;
 let turnCount = 0;
@@ -97,7 +102,7 @@ function easyabbendChild() {
     removeAllImage();
     for (let i = 0; i < easyimg.length; i++) {
       easyimg[i] = document.createElement("img");
-      easyimg[i].src = "./images/Q.jpeg";
+      easyimg[i].src = "./images/Q.jpg";
       easyimg[i].id = i + 1;
       easyimg[i].addEventListener("click", swaper);
       div.appendChild(easyimg[i]);
@@ -116,7 +121,7 @@ function midabbendChild() {
     removeAllImage();
     for (let i = 0; i < midimg.length; i++) {
       midimg[i] = document.createElement("img");
-      midimg[i].src = "./images/Q.jpeg";
+      midimg[i].src = "./images/Q.jpg";
       midimg[i].id = i + 1;
       midimg[i].addEventListener("click", swaper);
       div.appendChild(midimg[i]);
@@ -135,7 +140,7 @@ function hardabbendChild() {
     removeAllImage();
     for (let i = 0; i < hardimg.length; i++) {
       hardimg[i] = document.createElement("img");
-      hardimg[i].src = "./images/Q.jpeg";
+      hardimg[i].src = "./images/Q.jpg";
       hardimg[i].id = i + 1;
       hardimg[i].addEventListener("click", swaper);
       div.appendChild(hardimg[i]);
@@ -154,152 +159,108 @@ function removeAllImage() {
 }
 function returner() {
   for (let i = 0; i < choiceaArr.length; i++) {
-    document.querySelectorAll("img")[i].src = "./images/Q.jpeg";
+    document.querySelectorAll("img")[i].src = "./images/Q.jpg";
   }
 }
 function imgChanger() {
-  if (randomNumArr.length === 6) {
-    choiceaArr = [];
-    for (var i = 0; i < randomNumArr.length; i++) {
-      switch (randomNumArr[i]) {
-        case 1:
-        case 2:
-          choiceaArr.push(1);
-          break;
-        case 3:
-        case 4:
-          choiceaArr.push(2);
-          break;
-        case 5:
-        case 6:
-          choiceaArr.push(3);
-          break;
-      }
-    }
-  } else if (randomNumArr.length === 12) {
-    choiceaArr = [];
-    for (var i = 0; i < randomNumArr.length; i++) {
-      switch (randomNumArr[i]) {
-        case 1:
-        case 2:
-          choiceaArr.push(1);
-          break;
-        case 3:
-        case 4:
-          choiceaArr.push(2);
-          break;
-        case 5:
-        case 6:
-          choiceaArr.push(3);
-          break;
-        case 7:
-        case 8:
-          choiceaArr.push(4);
-          break;
-        case 9:
-        case 10:
-          choiceaArr.push(5);
-          break;
-        case 11:
-        case 12:
-          choiceaArr.push(6);
-      }
-    }
-  } else if (randomNumArr.length === 18) {
-    choiceaArr = [];
-    for (var i = 0; i < randomNumArr.length; i++) {
-      switch (randomNumArr[i]) {
-        case 1:
-        case 2:
-          choiceaArr.push(1);
-          break;
-        case 3:
-        case 4:
-          choiceaArr.push(2);
-          break;
-        case 5:
-        case 6:
-          choiceaArr.push(3);
-          break;
-        case 7:
-        case 8:
-          choiceaArr.push(4);
-          break;
-        case 9:
-        case 10:
-          choiceaArr.push(5);
-          break;
-        case 11:
-        case 12:
-          choiceaArr.push(6);
-          break;
-        case 13:
-        case 14:
-          choiceaArr.push(7);
-          break;
-        case 15:
-        case 16:
-          choiceaArr.push(8);
-          break;
-        case 17:
-        case 18:
-          choiceaArr.push(9);
-      }
+  choiceaArr = [];
+  for (var i = 0; i < randomNumArr.length; i++) {
+    switch (randomNumArr[i]) {
+      case 1:
+      case 2:
+        choiceaArr.push(1);
+        break;
+      case 3:
+      case 4:
+        choiceaArr.push(2);
+        break;
+      case 5:
+      case 6:
+        choiceaArr.push(3);
+        break;
+      case 7:
+      case 8:
+        choiceaArr.push(4);
+        break;
+      case 9:
+      case 10:
+        choiceaArr.push(5);
+        break;
+      case 11:
+      case 12:
+        choiceaArr.push(6);
+        break;
+      case 13:
+      case 14:
+        choiceaArr.push(7);
+        break;
+      case 15:
+      case 16:
+        choiceaArr.push(8);
+        break;
+      case 17:
+      case 18:
+        choiceaArr.push(9);
     }
   }
 }
 function swaper(event) {
   currentImage = event.target.id;
-  if (turnCount === 0) {
-    Fclick = currentImage;
-    if (R1 === 1) {
-      document.querySelectorAll("img")[Fclick - 1].src =
-        "./images/fruit/" + choiceaArr[Fclick - 1] + ".jpeg";
-    } else if (R1 === 2) {
-      document.querySelectorAll("img")[Fclick - 1].src =
-        "./images/animal/" + choiceaArr[Fclick - 1] + ".jpeg";
-    }
-    turnCount++;
-  } else if (turnCount === 1) {
-    Sclick = currentImage;
-    if (R1 === 1) {
-      document.querySelectorAll("img")[Sclick - 1].src =
-        "./images/fruit/" + choiceaArr[Sclick - 1] + ".jpeg";
-    } else if (R1 === 2) {
-      document.querySelectorAll("img")[Sclick - 1].src =
-        "./images/animal/" + choiceaArr[Sclick - 1] + ".jpeg";
-    }
-    if (
-      choiceaArr[Fclick - 1] === choiceaArr[Sclick - 1] &&
-      Fclick !== Sclick
-    ) {
-      turnCount = 0;
-      Fclick = 0;
-      Sclick = 0;
-      same++;
-    } else {
-      if (Fclick !== Sclick) {
-        differnt++;
-        message.innerText = `Wrong Count = ${differnt}`;
+  if (keyDown) {
+    mario.play();
+    if (turnCount === 0) {
+      Fclick = currentImage;
+      if (R1 === 1) {
+        document.querySelectorAll("img")[Fclick - 1].src =
+          "./images/fruit/" + choiceaArr[Fclick - 1] + ".jpeg";
+      } else if (R1 === 2) {
+        document.querySelectorAll("img")[Fclick - 1].src =
+          "./images/animal/" + choiceaArr[Fclick - 1] + ".jpeg";
       }
-      setTimeout(function () {
-        document.getElementById(Fclick).src = "./images/Q.jpeg";
-        document.getElementById(Sclick).src = "./images/Q.jpeg";
+      turnCount++;
+    } else if (turnCount === 1) {
+      Sclick = currentImage;
+      if (R1 === 1) {
+        document.querySelectorAll("img")[Sclick - 1].src =
+          "./images/fruit/" + choiceaArr[Sclick - 1] + ".jpeg";
+      } else if (R1 === 2) {
+        document.querySelectorAll("img")[Sclick - 1].src =
+          "./images/animal/" + choiceaArr[Sclick - 1] + ".jpeg";
+      }
+      if (
+        choiceaArr[Fclick - 1] === choiceaArr[Sclick - 1] &&
+        Fclick !== Sclick
+      ) {
         turnCount = 0;
         Fclick = 0;
         Sclick = 0;
-      }, 800);
-    }
-    if (same === choiceaArr.length / 2) {
-      message.innerText = "You win";
-      setTimeout(function () {
-        handelReset();
-      }, 3000);
-    } else if (differnt === 4) {
-      message.innerText = `The wrong Counter Hit ${differnt} You lost`;
-      setTimeout(function () {
-        handelReset();
-      }, 3000);
+        same++;
+      } else {
+        if (Fclick !== Sclick) {
+          wrong.play();
+          differnt++;
+          message.innerText = `Wrong Count = ${differnt}`;
+        }
+        setTimeout(function () {
+          document.getElementById(Fclick).src = "./images/Q.jpg";
+          document.getElementById(Sclick).src = "./images/Q.jpg";
+          turnCount = 0;
+          Fclick = 0;
+          Sclick = 0;
+        }, 800);
+      }
+      if (same === choiceaArr.length / 2) {
+        message.innerText = "You win";
+        victory.play();
+        setTimeout(function () {
+          handelReset();
+        }, 3000);
+      } else if (differnt === 4) {
+        message.innerText = `The wrong Counter Hit ${differnt} You lost`;
+        setTimeout(function () {
+          handelReset();
+        }, 3000);
+      }
     }
   }
 }
@@ -340,9 +301,16 @@ function handelReset() {
     "Increase The Difficulty first If You Want Then Press Any Key to Start";
   removeAllImage();
 }
+function handellight() {
+  document.querySelector("body").classList.toggle("sun");
+  document.querySelector("h1").classList.toggle("sun");
+  document.querySelector("p").classList.toggle("sun");
+  document.querySelector("#timer").classList.toggle("sun");
+}
 /*----------- Event Listeners ----------*/
 document.addEventListener("keydown", handelKeyDown);
 easybtn.addEventListener("click", easyabbendChild);
 midbtn.addEventListener("click", midabbendChild);
 hardbtn.addEventListener("click", hardabbendChild);
 reset.addEventListener("click", handelReset);
+light.addEventListener("click", handellight);
