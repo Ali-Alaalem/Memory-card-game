@@ -11,6 +11,7 @@ The player must first select an appropriate difficulty level, such as easy, medi
 ### Examble of the easy difficulty
 
 ![](./images/image%20copy.png)
+
 ### Examble of starting the game by key down event
 
 ![](./images/img%201.png)
@@ -26,3 +27,5 @@ The player must first select an appropriate difficulty level, such as easy, medi
 ### Examble of pressing reset button
 
 ![](./images/image.png)
+
+[Check The Game](https://ali-alaalem.github.io/Project-1/)
