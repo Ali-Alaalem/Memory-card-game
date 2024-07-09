@@ -294,7 +294,7 @@ function timerCalc() {
       message.innerText = `The Times Up You lost`;
       setTimeout(function () {
         handelReset();
-      }, 3000);
+      }, 15000);
     }
   }
 }
