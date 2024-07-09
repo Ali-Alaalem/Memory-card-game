@@ -42,7 +42,7 @@ function handelKeyDown() {
   ) {
     keyDown = true;
     gameStarted = true;
-    console.log(gameStarted);
+
     message.innerText =
       "If you do 4 wrong matching or The Time's Up The Game Will Over";
     interval = setInterval(timerCalc, 1000);
@@ -268,6 +268,7 @@ function swaper(event) {
       if (same === choiceaArr.length / 2) {
         message.innerText = "You win";
         victory.play();
+        clearInterval(interval);
         setTimeout(function () {
           handelReset();
         }, 3000);
@@ -275,7 +276,7 @@ function swaper(event) {
         message.innerText = `The wrong Counter Hit ${differnt} You lost`;
         setTimeout(function () {
           handelReset();
-        }, 3000);
+        }, 800);
       }
     }
   }
