@@ -6,24 +6,23 @@ A game where skill of memorization is required. In order to win, the player must
 
 The player must first select an appropriate difficulty level, such as easy, medium, or hard. In order to watch the pictures for around three seconds before they flip back, the player should then depress any key. It is important for the player to remember where the images were after they were flipped back so he can match each card in the game with an identical card. Whenever the player make four incorrect selections or the timer run out, they will lose.
 
-![](image.png)
+![](./images/image.png)
 
 ### Examble of the easy difficulty
 
-![](./image%20copy.png)
-
+![](./images/image%20copy.png)
 ### Examble of starting the game by key down event
 
-![](./img%201.png)
+![](./images/img%201.png)
 
 ### Examble of losing with 4 wrong choice
 
-![](./img%202.png)
+![](./images/img%202.png)
 
 ### Examble of losing when time's up
 
-![](./img%203.png)
+![](./images/img%203.png)
 
 ### Examble of pressing reset button
 
-![](image.png)
+![](./images/image.png)
