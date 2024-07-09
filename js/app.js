@@ -133,7 +133,7 @@ function midabbendChild() {
       midimg[i] = document.createElement("img");
       midimg[i].src = "./images/Q.jpg";
       midimg[i].id = i + 1;
-      easyimg[i].alt = "Question mark image";
+      midimg[i].alt = "Question mark image";
       midimg[i].addEventListener("click", swaper);
       div.appendChild(midimg[i]);
     }
@@ -154,7 +154,7 @@ function hardabbendChild() {
       hardimg[i] = document.createElement("img");
       hardimg[i].src = "./images/Q.jpg";
       hardimg[i].id = i + 1;
-      easyimg[i].alt = "Question mark image";
+      hardimg[i].alt = "Question mark image";
       hardimg[i].addEventListener("click", swaper);
       div.appendChild(hardimg[i]);
     }
