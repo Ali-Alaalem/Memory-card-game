@@ -28,4 +28,4 @@ The player must first select an appropriate difficulty level, such as easy, medi
 
 ![](./images/image.png)
 
-[Check The Game](https://ali-alaalem.github.io/Memory-card-game/)
+[Check The Game](https://ali-alaalem.github.io/Project-1/)
