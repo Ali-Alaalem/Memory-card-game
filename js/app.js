@@ -2,6 +2,7 @@
 const easybtn = document.querySelector("#Easy");
 const midbtn = document.querySelector("#Mid");
 const hardbtn = document.querySelector("#Hard");
+const startbtn = document.querySelector("#start");
 const div = document.querySelector(".Container");
 const message = document.querySelector("p");
 const timer = document.querySelector("#timer");
@@ -276,7 +277,7 @@ function swaper(event) {
         message.innerText = `The wrong Counter Hit ${differnt} You lost`;
         setTimeout(function () {
           handelReset();
-        }, 800);
+        }, 2000);
       }
     }
   }
