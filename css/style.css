@@ -128,9 +128,11 @@ img:hover {
   background-color: #e0f7fa !important;
   color: #004d40 !important;
 }
-
-@media screen and (max-width: 320px) {
-  body {
-    background-color: blue;
-  }
+#start
+{
+  background-color: #e57373;
+  color: white;
 }
+
+
+

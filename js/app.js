@@ -112,6 +112,7 @@ function easyabbendChild() {
       easyimg[i] = document.createElement("img");
       easyimg[i].src = "./images/Q.jpg";
       easyimg[i].id = i + 1;
+      easyimg[i].alt = "Question mark image";
       easyimg[i].addEventListener("click", swaper);
       div.appendChild(easyimg[i]);
     }
@@ -132,6 +133,7 @@ function midabbendChild() {
       midimg[i] = document.createElement("img");
       midimg[i].src = "./images/Q.jpg";
       midimg[i].id = i + 1;
+      easyimg[i].alt = "Question mark image";
       midimg[i].addEventListener("click", swaper);
       div.appendChild(midimg[i]);
     }
@@ -152,6 +154,7 @@ function hardabbendChild() {
       hardimg[i] = document.createElement("img");
       hardimg[i].src = "./images/Q.jpg";
       hardimg[i].id = i + 1;
+      easyimg[i].alt = "Question mark image";
       hardimg[i].addEventListener("click", swaper);
       div.appendChild(hardimg[i]);
     }
@@ -295,7 +298,7 @@ function timerCalc() {
       message.innerText = `The Times Up You lost`;
       setTimeout(function () {
         handelReset();
-      }, 15000);
+      }, 1500);
     }
   }
 }
@@ -319,7 +322,7 @@ function handelReset() {
   randomNumArr = [];
   timer.innerText = " ";
   message.innerText =
-    "Increase The Difficulty first If You Want Then Press Any Key to Start";
+    "Increase The Difficulty first If You Want Then Press the start button or Any Key to start";
   removeAllImage();
 }
 function handellight() {
@@ -335,3 +338,4 @@ midbtn.addEventListener("click", midabbendChild);
 hardbtn.addEventListener("click", hardabbendChild);
 reset.addEventListener("click", handelReset);
 light.addEventListener("click", handellight);
+startbtn.addEventListener("click", handelKeyDown);
