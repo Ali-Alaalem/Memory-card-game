@@ -45,8 +45,6 @@ The player must first select an appropriate difficulty level, such as easy, medi
 ![](./images/image.png)
 
 ### Future Updates
-<<<<<<< HEAD
-
 - [ ] (Media query for Ipad)
 - [ ] (Media query for bigger screen)
 - [ ] (Top score for the least amount of time used)
