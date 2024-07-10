@@ -19,7 +19,7 @@ let Fclick;
 let Sclick;
 let same = 0;
 let differnt = 0;
-let keyDown = false;
+let clicked = false;
 let easyClicked = false;
 let midClicked = false;
 let hardClicked = false;
@@ -36,12 +36,12 @@ let hardimg = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
 /*----- Cached Element References  -----*/
 
 /*-------------- Functions -------------*/
-function handelKeyDown() {
+function handelclick() {
   if (
     !gameStarted &&
     (easyClicked === true || midClicked === true || hardClicked === true)
   ) {
-    keyDown = true;
+    clicked = true;
     gameStarted = true;
 
     message.innerText =
@@ -120,7 +120,7 @@ function easyabbendChild() {
     midClicked = false;
     hardClicked = false;
     clearInterval(interval);
-    keyDown = false;
+    clicked = false;
     gameStarted = false;
   }
 }
@@ -141,7 +141,7 @@ function midabbendChild() {
     easyClicked = false;
     hardClicked = false;
     clearInterval(interval);
-    keyDown = false;
+    clicked = false;
     gameStarted = false;
   }
 }
@@ -162,7 +162,7 @@ function hardabbendChild() {
     easyClicked = false;
     midClicked = false;
     clearInterval(interval);
-    keyDown = false;
+    clicked = false;
     gameStarted = false;
   }
 }
@@ -222,7 +222,7 @@ function swaper(event) {
   if (isProcessing) return;
   isProcessing = true;
   currentImage = event.target.id;
-  if (keyDown) {
+  if (clicked) {
     mario.play();
     if (turnCount === 0) {
       Fclick = currentImage;
@@ -286,7 +286,7 @@ function swaper(event) {
   }
 }
 function timerCalc() {
-  if (keyDown === true && differnt !== 4) {
+  if (clicked === true && differnt !== 4) {
     if (timercount > 0) {
       timercount--;
       timer.innerText = timercount;
@@ -309,7 +309,7 @@ function handelReset() {
   Sclick;
   same = 0;
   differnt = 0;
-  keyDown = false;
+  clicked = false;
   easyClicked = false;
   midClicked = false;
   hardClicked = false;
@@ -322,7 +322,7 @@ function handelReset() {
   randomNumArr = [];
   timer.innerText = " ";
   message.innerText =
-    "Increase The Difficulty first If You Want Then Press the start button or Any Key to start";
+    "Increase The Difficulty first If You Want Then Press the start button";
   removeAllImage();
 }
 function handellight() {
@@ -332,10 +332,9 @@ function handellight() {
   document.querySelector("#timer").classList.toggle("sun");
 }
 /*----------- Event Listeners ----------*/
-document.addEventListener("keydown", handelKeyDown);
 easybtn.addEventListener("click", easyabbendChild);
 midbtn.addEventListener("click", midabbendChild);
 hardbtn.addEventListener("click", hardabbendChild);
 reset.addEventListener("click", handelReset);
 light.addEventListener("click", handellight);
-startbtn.addEventListener("click", handelKeyDown);
+startbtn.addEventListener("click", handelclick);
