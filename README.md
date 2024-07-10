@@ -47,7 +47,7 @@ The player must first select an appropriate difficulty level, such as easy, medi
 ### Future Updates
 - [](Media query for Ipad)
 - [ ] 
-- [ ](Media query for bigger screen)
+- [ ] (Media query for bigger screen)
 - [ ](Top score for the least amount of time used)
 - [x](Media query for phone)
 - [x](Dark mode button)
