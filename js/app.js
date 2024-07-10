@@ -8,6 +8,8 @@ const message = document.querySelector("p");
 const timer = document.querySelector("#timer");
 const reset = document.querySelector("#reset");
 const light = document.querySelector("#dark");
+const h3 = document.querySelectorAll("h3");
+const h4 = document.querySelector("h4");
 let mario = new Audio("mario.mp3");
 let wrong = new Audio("wrong.mp3");
 let victory = new Audio("victory.mp3");
@@ -104,6 +106,9 @@ function randomNumGenerater() {
   }
 }
 function easyabbendChild() {
+  h3[0].setAttribute("hidden", true);
+  h3[1].setAttribute("hidden", true);
+  h4.setAttribute("hidden", true);
   timer.innerText = "120";
   timercount = 120;
   if (easyClicked === false) {
@@ -125,6 +130,9 @@ function easyabbendChild() {
   }
 }
 function midabbendChild() {
+  h3[0].setAttribute("hidden", true);
+  h3[1].setAttribute("hidden", true);
+  h4.setAttribute("hidden", true);
   timer.innerText = "100";
   timercount = 100;
   if (midClicked === false) {
@@ -146,6 +154,9 @@ function midabbendChild() {
   }
 }
 function hardabbendChild() {
+  h3[0].setAttribute("hidden", true);
+  h3[1].setAttribute("hidden", true);
+  h4.setAttribute("hidden", true);
   timer.innerText = "80";
   timercount = 80;
   if (hardClicked === false) {
@@ -323,6 +334,9 @@ function handelReset() {
   timer.innerText = " ";
   message.innerText =
     "Increase The Difficulty first If You Want Then Press the start button";
+  h3[0].removeAttribute("hidden");
+  h3[1].removeAttribute("hidden");
+  h4.removeAttribute("hidden");
   removeAllImage();
 }
 function handellight() {

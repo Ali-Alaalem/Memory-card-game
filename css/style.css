@@ -133,6 +133,12 @@ img:hover {
   background-color: #e57373;
   color: white;
 }
+h4
+{margin-left: 130px;}
+#note
+{
+  font-size: 15px;
+}
 @media screen and (max-width:450px){
   img {
     margin: 5px;
@@ -154,6 +160,17 @@ img:hover {
     color: #004d40;
     transition: color 0.3s ease;
   }
+  h3 {
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+    text-align: center;
+  }
+  h4 {
+    font-size: 1.0em;
+    transition: color 0.3s ease;
+    margin-left: 20px;
+  }
+  
 }
 
 
