@@ -52,14 +52,7 @@ The player must first select an appropriate difficulty level, such as easy, medi
 - [ ] (Top score for the least amount of time used)
 - [x] (Media query for phone)
 - [x] (Dark mode button)
-=======
-- [](Media query for Ipad)
-- [ ] 
-- [ ] (Media query for bigger screen)
-- [ ](Top score for the least amount of time used)
-- [x](Media query for phone)
-- [x](Dark mode button)
->>>>>>> 414eeb382cbff8c35e41abb97c0f42e0670c63dd
+
 
 ### Credits
 
