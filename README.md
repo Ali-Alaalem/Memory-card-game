@@ -30,15 +30,19 @@ The player must first select an appropriate difficulty level, such as easy, medi
 
 ![](./images/image.png)
 
-
 ### Technologies used:
-+ HTMl used to build the structure of the game 
-+ Java Script used to give the fanctionality to the game button,img etc....
-+ Css used to give a design to the game
+
+- HTMl used to build the structure of the game
+- Java Script used to give the fanctionality to the game button,img etc....
+- Css used to give a design to the game
 
 ### Sources
-+ All the image are taken from Google
-+ All the adiuo are taken from [my instants website](https://www.myinstants.com/en/index/bh/)
 
+- All the image are taken from Google
+- All the adiuo are taken from [my instants website](https://www.myinstants.com/en/index/bh/)
+
+### Next step:
+
+i'am planning to add some media query for bigger and smaller screan and a top score for the least amount of time used
 
 [Check The Game](https://ali-alaalem.github.io/Memory-card-game/)
